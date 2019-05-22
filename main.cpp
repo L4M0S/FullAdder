@@ -72,25 +72,14 @@ void Right2comp(char x)
 	}while(read()==x);
 }
 
-void initTape(char *a,char *b)
+void initTape()
 {
 	for(int i= -18; i<=11; i++)
 	{
-		tape[i]=' ';
+		header=i;
+		sigma(' ');
 	}
-	
-	tape[-9]=':';
-	tape[0]='@';
-	tape[2]=':';
-	tape[1]='0';
-	
-	for(int i=-17;i<=-10;i++)
-	{
-		tape[i]=a[i+17];
-		tape[i+9]=b[i+17];
-	}
-	
-	Left2(' ');R();
+	header=0;
 }
 
 int main()
@@ -101,10 +90,33 @@ int main()
 	cout<<"B= ";cin>>B;
 	cout<<endl;
 		
-	initTape(A,B);
+	initTape();
+	
+	L(17);
+	
+	for(int i=0;i<8;i++)
+	{
+		sigma(A[i]);
+		R();
+	}
+	
+	R();
+	
+	for(int i=0;i<8;i++)
+	{
+		sigma(B[i]);
+		R();
+	}
+	
+	sigma('@');
+	R();sigma('0');
+	R();sigma(':');
+	L(11);sigma(':');
+	
+	Left2(' ');R();
 	
 	print();	
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 	Right2(':');L();print();
 	if(read()=='1'||read()=='0')
 	{
