@@ -11,7 +11,7 @@ TAPE tape;
 ITR itr;
 
 int header=0;
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void print()
 {
 	cout<<endl;
@@ -116,159 +116,101 @@ int main()
 	Left2(' ');R();
 	
 	print();	
-////////////////////////////////////////////////////////////////////////////////////////////////////
-	Right2(':');L();print();
-	if(read()=='1'||read()=='0')
-	{
-		loop:
-		print();
-		R();L();
-		if(read()=='1')
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	Right2(':');//print();
+	//if(read()=='1'||read()=='0')
+	//{
+		//loop:
+		bool loop=true;
+		while(loop)
 		{
+			
+			//system("pause");
 			print();
-			R(9);
-			if(read()=='1')
+			L();
+			print();
+			//print();
+			//R();L();
+			if(read()==' ')
 			{
+				R();
 				print();
-				Right2('@');R();
+				loop=false;
+			}
+			else if(read()=='1')
+			{
+				//print();
+				R(9);
 				if(read()=='1')
 				{
 					print();
-					sigma('1');R(10);Left2(' ');sigma('1');L(21);
-					if(read()=='1'||read()=='0')
-					{
-						goto loop;
-					}
-					else if(read()==' ')
+					Right2('@');R();
+					if(read()=='1')
 					{
 						print();
-						R();
+						sigma('1');R(10);Left2(' ');sigma('1');L(20);
+					}
+					else if(read()=='0')
+					{
+						print();
+						sigma('1');R(10);Left2(' ');sigma('0');L(20);
 					}
 				}
 				else if(read()=='0')
 				{
 					print();
-					sigma('1');R(10);Left2(' ');sigma('0');L(21);
-					if(read()=='1'||read()=='0')
-					{
-						goto loop;
-					}
-					else if(read()==' ')
+					Right2('@');R();
+					if(read()=='1')
 					{
 						print();
-						R();
+						sigma('1');R(10);Left2(' ');sigma('0');L(20);
+					}
+					else if(read()=='0')
+					{
+						print();
+						sigma('0');R(10);Left2(' ');sigma('1');L(20);
 					}
 				}
 			}
 			else if(read()=='0')
 			{
-				print();
-				Right2('@');R();
+				//print();
+				R(9);
 				if(read()=='1')
 				{
 					print();
-					sigma('1');R(10);Left2(' ');sigma('0');L(21);
-					if(read()=='1'||read()=='0')
-					{
-						goto loop;
-					}
-					else if(read()==' ')
+					Right2('@');R();
+					if(read()=='1')
 					{
 						print();
-						R();
+						sigma('1');R(10);Left2(' ');sigma('0');L(20);
+					}
+					else if(read()=='0')
+					{
+						print();
+						sigma('0');R(10);Left2(' ');sigma('1');L(20);
 					}
 				}
 				else if(read()=='0')
 				{
 					print();
-					sigma('0');R(10);Left2(' ');sigma('1');L(21);
-					if(read()=='1'||read()=='0')
-					{
-						goto loop;
-					}
-					else if(read()==' ')
+					Right2('@');R();
+					if(read()=='1')
 					{
 						print();
-						R();
+						sigma('0');R(10);Left2(' ');sigma('1');L(20);
+					}
+					else if(read()=='0')
+					{
+						print();
+						sigma('0');R(10);Left2(' ');sigma('0');L(20);
 					}
 				}
 			}
 		}
-		else if(read()=='0')
-		{
-			print();
-			R(9);
-			if(read()=='1')
-			{
-				print();
-				Right2('@');R();
-				if(read()=='1')
-				{
-					print();
-					sigma('1');R(10);Left2(' ');sigma('0');L(21);
-					if(read()=='1'||read()=='0')
-					{
-						goto loop;
-					}
-					else if(read()==' ')
-					{
-						print();
-						R();
-					}
-				}
-				else if(read()=='0')
-				{
-					print();
-					sigma('0');R(10);Left2(' ');sigma('1');L(21);
-					if(read()=='1'||read()=='0')
-					{
-						goto loop;
-					}
-					else if(read()==' ')
-					{
-						print();
-						R();
-					}
-				}
-			}
-			else if(read()=='0')
-			{
-				print();
-				Right2('@');R();
-				if(read()=='1')
-				{
-					print();
-					sigma('0');R(10);Left2(' ');sigma('1');L(21);
-					if(read()=='1'||read()=='0')
-					{
-						goto loop;
-					}
-					else if(read()==' ')
-					{
-						print();
-						R();
-					}
-				}
-				else if(read()=='0')
-				{
-					print();
-					sigma('0');R(10);Left2(' ');sigma('0');L(21);
-					if(read()=='1'||read()=='0')
-					{
-						goto loop;
-					}
-					else if(read()==' ')
-					{
-						print();
-						R();
-					}
-				}
-			}
-		}	
-	}
-	print();
+	//}
+	//print();
 
-	
 	cout<<endl<<endl;
 	system("pause");
 	return 0;
